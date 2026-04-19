@@ -93,10 +93,12 @@
       align-items: center;
     }
     .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 28px;
+      width: auto;
     }
     .nav-links {
       display: flex;
@@ -437,7 +439,9 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Bulvard</a>
+      <a href="#" class="nav-logo" aria-label="Bulvard home">
+        <img src="logo.png" alt="Bulvard">
+      </a>
       <ul class="nav-links">
         <li><a href="#products">Products</a></li>
         <li><a href="#about">About</a></li>
