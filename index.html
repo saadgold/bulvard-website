@@ -207,12 +207,31 @@
       background: white;
       border: 1px solid var(--border-light);
       border-radius: var(--radius);
-      padding: 2rem;
+      overflow: hidden;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     .product-card:hover {
       box-shadow: 0 8px 30px rgba(0,0,0,0.06);
       transform: translateY(-2px);
+    }
+    .product-thumb {
+      aspect-ratio: 1200 / 630;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FF6B4A, #FF8E6C);
+    }
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .product-body {
+      padding: 1.75rem 2rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .product-card.coming-soon {
       background: transparent;
@@ -445,20 +464,24 @@
       <div class="product-grid">
         <!-- FaceStabilizer -->
         <article class="product-card">
-          <div class="product-header">
-            <div class="product-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+          <a href="https://facestabilizer.com" target="_blank" rel="noopener" style="display:block;">
+            <div class="product-thumb">
+              <img src="https://facestabilizer.com/og-image.png" alt="FaceStabilizer — AI-powered video reframing for macOS" loading="lazy">
             </div>
-            <div>
-              <div class="product-name">FaceStabilizer</div>
-              <div class="product-platform">macOS · Windows coming soon</div>
-            </div>
-          </div>
-          <p class="product-description">AI-powered video reframing for creators. Convert horizontal footage to vertical for TikTok, Reels, and Shorts with automatic face tracking. Everything runs locally — your footage never leaves your computer.</p>
-          <a href="https://facestabilizer.com" class="product-link" target="_blank" rel="noopener">
-            Visit facestabilizer.com
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
+          <div class="product-body">
+            <div class="product-header">
+              <div>
+                <div class="product-name">FaceStabilizer</div>
+                <div class="product-platform">macOS · Windows coming soon</div>
+              </div>
+            </div>
+            <p class="product-description">AI-powered video reframing for creators. Convert horizontal footage to vertical for TikTok, Reels, and Shorts with automatic face tracking. Everything runs locally — your footage never leaves your computer.</p>
+            <a href="https://facestabilizer.com" class="product-link" target="_blank" rel="noopener">
+              Visit facestabilizer.com
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
         </article>
 
         <!-- Coming Soon -->
