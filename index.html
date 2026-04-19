@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulvard — Software that respects your privacy</title>
+  <meta name="description" content="Bulvard builds privacy-first desktop software. We create tools that run locally on your machine, with no cloud uploads and no data collection. Makers of FaceStabilizer.">
+  <meta name="keywords" content="Bulvard, Bulvard LLC, privacy-first software, desktop applications, FaceStabilizer, local processing, macOS apps">
+
+  <link rel="canonical" href="https://bulvard.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bulvard.com/">
+  <meta property="og:title" content="Bulvard — Software that respects your privacy">
+  <meta property="og:description" content="We build privacy-first desktop software. Makers of FaceStabilizer.">
+  <meta property="og:site_name" content="Bulvard">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bulvard — Software that respects your privacy">
+  <meta name="twitter:description" content="We build privacy-first desktop software. Makers of FaceStabilizer.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bulvard LLC",
+    "url": "https://bulvard.com",
+    "description": "Bulvard builds privacy-first desktop software.",
+    "email": "hello@bulvard.com"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAF8F7;
+      --text: #1C1412;
+      --text-secondary: #4A4340;
+      --text-muted: #6B615C;
+      --border: #E5DFD9;
+      --border-light: #EDEBE8;
+      --coral: #FF6B4A;
+      --coral-dark: #C94525;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --max-w: 1100px;
+      --font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Fraunces', Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img, svg { display: block; max-width: 100%; }
+
+    /* ============ NAV ============ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 248, 247, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    @media (max-width: 640px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.85rem; }
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      padding: 9rem 1.5rem 5rem;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hero-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral-dark);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ============ PRODUCTS ============ */
+    .products {
+      padding: 4rem 1.5rem 6rem;
+    }
+    .products-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral-dark);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .product-card.coming-soon {
+      background: transparent;
+      border-style: dashed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .product-card.coming-soon:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .product-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .product-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #FF6B4A, #FF8E6C);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.15rem;
+    }
+    .product-platform {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .product-description {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--coral-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: gap 0.2s;
+    }
+    .product-link:hover { gap: 0.7rem; }
+
+    .coming-soon-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.5;
+    }
+    .coming-soon-text {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .coming-soon-subtext {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ============ ABOUT ============ */
+    .about {
+      padding: 5rem 1.5rem;
+      background: #1C1412;
+      color: white;
+    }
+    .about-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about .section-label { color: #FF8E6C; }
+    .about h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    .about p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .about p:last-child { margin-bottom: 0; }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .values { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    .value h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .value p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ============ CONTACT ============ */
+    .contact {
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .contact h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .contact p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: var(--radius);
+      background: var(--coral-dark);
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #B33D20;
+      transform: translateY(-1px);
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-inner p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Bulvard</a>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">Independent Software Studio</div>
+      <h1>Software that respects your privacy.</h1>
+      <p>Bulvard builds focused desktop tools that run entirely on your machine. No cloud uploads. No data collection. Just software that does its job and gets out of your way.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="products-inner">
+      <div class="section-label">Our Products</div>
+      <h2 class="section-heading">What we've built</h2>
+
+      <div class="product-grid">
+        <!-- FaceStabilizer -->
+        <article class="product-card">
+          <div class="product-header">
+            <div class="product-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+            </div>
+            <div>
+              <div class="product-name">FaceStabilizer</div>
+              <div class="product-platform">macOS · Windows coming soon</div>
+            </div>
+          </div>
+          <p class="product-description">AI-powered video reframing for creators. Convert horizontal footage to vertical for TikTok, Reels, and Shorts with automatic face tracking. Everything runs locally — your footage never leaves your computer.</p>
+          <a href="https://facestabilizer.com" class="product-link" target="_blank" rel="noopener">
+            Visit facestabilizer.com
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <!-- Coming Soon -->
+        <article class="product-card coming-soon">
+          <div class="coming-soon-icon">✨</div>
+          <div class="coming-soon-text">More coming soon</div>
+          <div class="coming-soon-subtext">We're working on new tools. Stay tuned.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="section-label">About Bulvard</div>
+      <h2>We build tools we'd want to use ourselves.</h2>
+      <p>Bulvard is an independent software studio focused on desktop applications that put users first. We believe software should be fast, focused, and respectful of the people who use it.</p>
+      <p>That means processing data locally whenever possible, being transparent about what our apps do, and shipping tools that solve real problems without the bloat.</p>
+
+      <div class="values">
+        <div class="value">
+          <h3>Privacy first</h3>
+          <p>Our apps run on your machine. Your files never touch our servers.</p>
+        </div>
+        <div class="value">
+          <h3>Focused tools</h3>
+          <p>We build software that does one thing exceptionally well, not everything poorly.</p>
+        </div>
+        <div class="value">
+          <h3>Independent</h3>
+          <p>No investors telling us what to ship. We answer to our customers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <h2>Get in touch</h2>
+      <p>Questions, partnership ideas, or support requests — we'd love to hear from you.</p>
+      <a href="mailto:hello@bulvard.com" class="btn">
+        hello@bulvard.com
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2026 Bulvard LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://facestabilizer.com" target="_blank" rel="noopener">FaceStabilizer</a>
+        <a href="mailto:hello@bulvard.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
