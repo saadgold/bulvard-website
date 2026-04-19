@@ -14,12 +14,14 @@
   <meta property="og:url" content="https://bulvard.com/">
   <meta property="og:title" content="Bulvard — Software that respects your privacy">
   <meta property="og:description" content="We build privacy-first desktop software. Makers of FaceStabilizer.">
+  <meta property="og:image" content="https://bulvard.com/hero.jpg">
   <meta property="og:site_name" content="Bulvard">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bulvard — Software that respects your privacy">
   <meta name="twitter:description" content="We build privacy-first desktop software. Makers of FaceStabilizer.">
+  <meta name="twitter:image" content="https://bulvard.com/hero.jpg">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -116,10 +118,26 @@
 
     /* ============ HERO ============ */
     .hero {
+      position: relative;
       padding: 9rem 1.5rem 5rem;
       text-align: center;
+      overflow: hidden;
+      background-image: url('hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(28,20,18,0.55) 0%, rgba(28,20,18,0.75) 100%);
+      z-index: 1;
     }
     .hero-inner {
+      position: relative;
+      z-index: 2;
       max-width: 780px;
       margin: 0 auto;
     }
@@ -129,7 +147,7 @@
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--coral-dark);
+      color: #FFB8A0;
       margin-bottom: 1.5rem;
     }
     .hero h1 {
@@ -139,10 +157,11 @@
       line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
+      color: white;
     }
     .hero p {
       font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.88);
       max-width: 620px;
       margin: 0 auto;
       line-height: 1.6;
